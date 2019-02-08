@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Skybox_1", "Skybox_1\Skybox_1.vcxproj", "{62FA880C-8463-4714-AE0F-8AF638B0115E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Debug|x64.ActiveCfg = Debug|x64
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Debug|x64.Build.0 = Debug|x64
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Debug|x86.ActiveCfg = Debug|Win32
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Debug|x86.Build.0 = Debug|Win32
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Release|x64.ActiveCfg = Release|x64
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Release|x64.Build.0 = Release|x64
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Release|x86.ActiveCfg = Release|Win32
+		{62FA880C-8463-4714-AE0F-8AF638B0115E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0016BF15-D58C-4E91-88B1-8FCDB9B39D06}
+	EndGlobalSection
+EndGlobal
