@@ -72,6 +72,7 @@ int Window::Initialise()
 	}
 
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
 
 	// Create Viewport
 	glViewport(0, 0, bufferWidth, bufferHeight);

@@ -79,8 +79,8 @@
       <AdditionalIncludeDirectories>$(SolutionDir)/includes;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\CG lib\GLFW\glfw-3.2.1.bin.WIN32\lib-vc2015;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\glew\Release\Win32;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\freeglut;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\assimp;$(SolutionDir)/../../External Libs/GLEW/lib/Release/Win32;$(SolutionDir)/../../External Libs/GLFW/lib-vc2015;%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
-      <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\CG lib\GLFW\glfw-3.2.1.bin.WIN32\lib-vc2015;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\glew\Release\Win32;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\freeglut;C:\Users\avich\source\repos\Skybox_1 - Copy\lib;$(SolutionDir)/../../External Libs/GLEW/lib/Release/Win32;$(SolutionDir)/../../External Libs/GLFW/lib-vc2015</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp.lib;opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -104,8 +104,8 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\CG lib\GLFW\glfw-3.2.1.bin.WIN32\lib-vc2015;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\glew\Release\Win32;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\freeglut;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\assimp;$(SolutionDir)/../../External Libs/GLEW/lib/Release/Win32;$(SolutionDir)/../../External Libs/GLFW/lib-vc2015;%(AdditionalLibraryDirectories);</AdditionalLibraryDirectories>
-      <AdditionalDependencies>assimp-vc140-mt.lib;opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\CG lib\GLFW\glfw-3.2.1.bin.WIN32\lib-vc2015;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\glew\Release\Win32;C:\Users\avich\source\repos\OpenGLCourseApp-Spot\OpenGLCourseApp\lib\freeglut;C:\Users\avich\source\repos\Skybox_1 - Copy\lib;$(SolutionDir)/../../External Libs/GLEW/lib/Release/Win32;$(SolutionDir)/../../External Libs/GLFW/lib-vc2015</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp.lib;opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

@@ -26,13 +26,13 @@
 
 #include "Skybox.h"
 
+
 const float toRadians = 3.14159265f / 180.0f;
 
 GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0, uniformEyePosition = 0,
 uniformSpecularIntensity = 0, uniformShininess = 0, uniformFarPlane = 0;
 
 Window mainWindow;
-std::vector<Mesh*> meshList;
 
 std::vector<Shader> shaderList;
 
@@ -58,6 +58,8 @@ static const char* vShader = "Shaders/shader.vert";
 // Fragment Shader
 static const char* fShader = "Shaders/shader.frag";
 
+
+/*
 void calcAverageNormals(unsigned int * indices, unsigned int indiceCount, GLfloat * vertices, unsigned int verticeCount, 
 						unsigned int vLength, unsigned int normalOffset)
 {
@@ -85,43 +87,8 @@ void calcAverageNormals(unsigned int * indices, unsigned int indiceCount, GLfloa
 		vertices[nOffset] = vec.x; vertices[nOffset + 1] = vec.y; vertices[nOffset + 2] = vec.z;
 	}
 }
+*/
 
-void CreateObjects() 
-{
-	unsigned int indices[] = {		
-		0, 3, 1,
-		1, 3, 2,
-		2, 3, 0,
-		0, 1, 2
-	};
-
-	GLfloat vertices[] = {
-	//	x      y      z			u	  v			nx	  ny    nz
-		-1.0f, -1.0f, -0.6f,		0.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		0.0f, -1.0f, 1.0f,		0.5f, 0.0f,		0.0f, 0.0f, 0.0f,
-		1.0f, -1.0f, -0.6f,		1.0f, 0.0f,		0.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,		0.5f, 1.0f,		0.0f, 0.0f, 0.0f
-	};
-
-	unsigned int floorIndices[] = {
-		0, 2, 1,
-		1, 2, 3
-	};
-
-	GLfloat floorVertices[] = {
-		-5.0f, 0.0f, -5.0f,	0.0f, 0.0f,		0.0f, -1.0f, 0.0f,
-		5.0f, 0.0f, -5.0f,	5.0f, 0.0f,	0.0f, -1.0f, 0.0f,
-		-5.0f, 0.0f, 5.0f,	0.0f, 5.0f,	0.0f, -1.0f, 0.0f,
-		5.0f, 0.0f, 5.0f,		5.0f, 5.0f,	0.0f, -1.0f, 0.0f
-	};
-
-	calcAverageNormals(indices, 12, vertices, 32, 8, 5);
-
-
-	Mesh *obj3 = new Mesh();
-	obj3->CreateMesh(floorVertices, floorIndices, 32, 6);
-	meshList.push_back(obj3);
-}
 
 void CreateShaders()
 {
@@ -135,13 +102,6 @@ void RenderScene()
 {
 	glm::mat4 model;
 
-	
-	model = glm::mat4();
-	model = glm::translate(model, glm::vec3(0.0f, -2.0f, 0.0f));
-	glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
-	//dirtTexture.UseTexture();
-	shinyMaterial.UseMaterial(uniformSpecularIntensity, uniformShininess);
-	meshList[0]->RenderMesh();
 
 	model = glm::mat4();
 	model = glm::translate(model, glm::vec3(0.0f, 2.0f, -2.5f));
@@ -151,7 +111,7 @@ void RenderScene()
 	shinyMaterial.UseMaterial(uniformSpecularIntensity, uniformShininess);
 	//get the uniform location from frag shader - samplercube
 	
-	//set 0 to th abve
+	//set 0 to th above
 	sphere.RenderModel();
 
 }
@@ -181,13 +141,11 @@ void RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 	glUniform3f(uniformEyePosition, camera.getCameraPosition().x, camera.getCameraPosition().y, camera.getCameraPosition().z);
 
 	
-	shaderList[0].SetTexture(1);
-
 	skyboxLocation = shaderList[0].GetSkyboxLocation();
 	glUniform1i(skyboxLocation, 0);
 
+	shaderList[0].SetTexture(1);
 
-	
 	shaderList[0].Validate();
 
 	RenderScene();
@@ -195,18 +153,13 @@ void RenderPass(glm::mat4 viewMatrix, glm::mat4 projectionMatrix)
 
 int main() 
 {
-	mainWindow = Window(1366, 768); // 1280, 1024 or 1024, 768
+	mainWindow = Window(1366, 768);
 	mainWindow.Initialise();
 
-	CreateObjects();
 	CreateShaders();
 
 	camera = Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -60.0f, 0.0f, 5.0f, 0.5f);
 
-	/*
-	dirtTexture = Texture("Textures/dirt.png");
-	dirtTexture.LoadTextureA();
-	*/
 
 	shinyMaterial = Material(4.0f, 256);
 	dullMaterial = Material(0.3f, 4);
@@ -229,14 +182,14 @@ int main()
 		uniformSpecularIntensity = 0, uniformShininess = 0;
 	glm::mat4 projection = glm::perspective(glm::radians(60.0f), (GLfloat)mainWindow.getBufferWidth() / mainWindow.getBufferHeight(), 0.1f, 100.0f);
 
-	// Loop until window closed
+	//main loop
 	while (!mainWindow.getShouldClose())
 	{
-		GLfloat now = glfwGetTime(); // SDL_GetPerformanceCounter();
-		deltaTime = now - lastTime; // (now - lastTime)*1000/SDL_GetPerformanceFrequency();
+		GLfloat now = glfwGetTime(); 
+		deltaTime = now - lastTime; 
 		lastTime = now;
 
-		// Get + Handle User Input
+
 		glfwPollEvents();
 
 		camera.keyControl(mainWindow.getsKeys(), deltaTime);
