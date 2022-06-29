@@ -1,0 +1,12 @@
+[submodule "assimp"]
+	path = assimp
+	url = https://github.com/assimp/assimp
+[submodule "freeglut"]
+	path = freeglut
+	url = https://github.com/FreeGLUTProject/freeglut.git
+[submodule "glfw"]
+	path = glfw
+	url = https://github.com/glfw/glfw
+[submodule "stb"]
+	path = stb
+	url = https://github.com/nothings/stb.git
