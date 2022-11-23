@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include <iostream>
+
 Window::Window()
 {
 	width = 800;
@@ -59,17 +61,14 @@ int Window::Initialise()
 	createCallbacks();
 	glfwSetInputMode(mainWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-	// Allow modern extension access
-	glewExperimental = GL_TRUE;
+	// glad: load all OpenGL function pointers
+    // ---------------------------------------
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return -1;
+    }
 
-	GLenum error = glewInit();
-	if (error != GLEW_OK)
-	{
-		printf("Error: %s", glewGetErrorString(error));
-		glfwDestroyWindow(mainWindow);
-		glfwTerminate();
-		return 1;
-	}
 
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);

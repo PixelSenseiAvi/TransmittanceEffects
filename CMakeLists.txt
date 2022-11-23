@@ -10,17 +10,23 @@ include_directories( ${OPENGL_INCLUDE_DIRS} )
 
 
 #GLEW
-find_package(GLEW REQUIRED)
-include_directories(${GLEW_INCLUDE_DIRS})
-link_libraries(${GLEW_LIBRARIES})
+#find_package(GLEW REQUIRED)
+#include_directories(${GLEW_INCLUDE_DIRS})
+#link_libraries(${GLEW_LIBRARIES})
 
+#GLAD
+include_directories(glad/include)
 
 #SOURCE FILES
 file(GLOB_RECURSE SRC_FILES src/*)
-add_executable(TransmittanceEffects ${SRC_FILES})
+add_executable(TransmittanceEffects 
+	${SRC_FILES}
+	glad/src/glad.c
+	)
 
 target_include_directories(TransmittanceEffects PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/includes)
 
+target_link_libraries(${PROJECT_NAME} ${CMAKE_DL_LIBS})
 
 #assimp
 add_subdirectory(assimp)
