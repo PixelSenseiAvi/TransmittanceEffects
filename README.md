@@ -1,8 +1,8 @@
 # TransmittanceEffects
 Opengl project. Illustration of Transmittance effects like
 1. reflection
-2. refraction
-3. chromatic aberration
+2. refraction![refraction](https://github.com/chikvi/TransmittanceEffects/blob/master/Refraction.png?raw=true)
+3. chromatic aberration ![ChromaticAberration](https://github.com/chikvi/TransmittanceEffects/blob/master/ChromaticAberration.png?raw=true)
 4. Fresnel effect
 
 [![Transmittance Effects](https://github.com/chikvi/TransmittanceEffects/blob/master/Reflection.png?raw=true)](https://www.youtube.com/watch?v=DEnl42Vec1o)
